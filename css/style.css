@@ -3,19 +3,64 @@
 
 body{
     background-color: #010409;
+    transition: all 0.5s ease;
+}
+
+body.active {
+  background-color: #f6f8ff;
 }
 
 .main{
     max-width: 800px;
     margin: 0 auto;
 }
-#form{
-    background-color: #0d1117;
-    display: flex;
-    margin: 30px 0;
-    padding: 17px;
+.change {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+  font-size: 1.2rem;
 }
+
+body.active .change,
+body.active .mode {
+  color: #010409;
+}
+
+.mode {
+  background-image: url("../images/002-sun.svg");
+  background-repeat: no-repeat;
+  color: white;
+  transition: all 0.5s ease;
+  background-position: 46px;
+  padding-right: 30px;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+body.active .mode {
+  background-image: url("../images/moon.svg");
+}
+
+#form{
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    padding: 10px 16px;
+    border-radius: 15px;
+    background-color: #0d1117;
+    box-shadow: #444242a1 0px 3px 15px 0px;
+    transition: all 0.5s ease;
+}
+body.active #form {
+  background-color: #fefefe;
+  box-shadow: gray 0px 3px 9px 0px;
+}
+
 #form input{
+    padding-left: 16px;
     background-color: transparent;
     border: none;
     color: #fff;
@@ -26,13 +71,17 @@ body{
 input:focus{
     outline: none;
 }
+body.active #form input {
+  color: #0d1117;
+}
+
 #form button{
     background-color: #2783fa;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     border: none;
     border-radius: 5px;
-    padding: 15px;
+    padding: 15px 20px;
 }
 #form button:hover{
     cursor: pointer;
@@ -41,7 +90,15 @@ input:focus{
 
 #result{
     background-color: #0d1117;
+    border-radius: 15px;
+    box-shadow: #444242a1 0px 3px 15px 0px;
+    transition: all 0.5s ease;
 }
+body.active #result {
+  background-color: #fefefe;
+  box-shadow: gray 0px 3px 9px 0px;
+}
+
 .card{
     display: flex;
     justify-content: space-around;
@@ -56,6 +113,11 @@ input:focus{
 .user-info, .blog{
     color: #fff;
 }
+body.active .user-info,
+body.active .blog {
+  color: #0d1117;
+}
+
 .name{
     font-size: 35px;
     font-family: 'Space Mono', monospace;
@@ -80,7 +142,13 @@ input:focus{
     background-color: #121923;
     border-radius: 10px;
     margin-bottom: 30px;
+    transition: all 0.5s ease;
 }
+
+body.active .followers {
+  background-color: #f6f8ff;
+}
+
 .user-links{
     padding-left: 0;
     display: grid;
