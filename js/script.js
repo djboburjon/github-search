@@ -1,8 +1,34 @@
 const API_URL = "https://api.github.com/users/";
 
+const body = document.querySelector("body")
+const mode = document.querySelector(".mode")
+const textChange = document.querySelector(".mode")
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const result = document.getElementById("result");
+
+const changer = () => {
+    let isLight = localStorage.getItem("mode") ? localStorage.getItem("mode") : "true";
+    if (isLight == "true") {
+        body.classList.add("active");
+        textChange.textContent = "Dark"
+    } else {
+        body.classList.remove("active");
+        textChange.textContent = "Light"
+    }
+}
+
+mode.addEventListener("click", () => {
+    if (localStorage.getItem("mode") == "true") {
+        localStorage.setItem("mode", false)
+    } else {
+        localStorage.setItem("mode", true)
+    }
+    changer()
+})
+
+changer()
+
 
 const getUser = async (username) => {
     const res = await fetch(API_URL + username);
